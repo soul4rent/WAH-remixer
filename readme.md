@@ -6,7 +6,8 @@ I'm putting it under the Apache 2 license if you want to use it, but I don't sug
 
 All rights go to their respective copyright holders.
 
-#Plans for the Future:
+# Plans for the Future:
+
 - Random Audio Editor (saves audio, doesn't just play the tracks)
 - Image Editor where Waluigi Photo Bombs the given image
 - Facial Recognition where faces are replaced with Waluigi's

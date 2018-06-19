@@ -48,7 +48,7 @@ def getAudioFromYoutube(ytlink):
     #use ffmpeg to extract audio from youtube video
     print('-ffmpeg conversion')
     try:
-        command = "ffmpeg -i \""+filename+"\" -ab 160k -ac 2 -ar 44100 -vn audio.wav"
+        command = "ffmpeg -i \""+filename+"\" -ab 160k -ac 2 -ar 22050 -vn audio.wav"
         subprocess.call(command, shell=True)
     except:
         print("ERR: FFMPEG COMMAND FAILED. COULD NOT FIND FILENAME OR COULD NOT PROCESS FILE.")
@@ -71,7 +71,7 @@ def WahDividers(sndLength):
 
 
 #takes audio file named "audio.wav", and randomly disperses "Wahs" made by Waluigi
-#creates file named "beauty.wav" in the process
+#creates file named "beauty.mp3" in the process
 #WARNING: DELETES "audio.wav" FOR CLEANUP (this prevents ffmpeg from breaking if ran again)
 def Waluigify():
 
@@ -91,7 +91,7 @@ def Waluigify():
     for x in range(0, len(wahPoints)):
         completeSound = completeSound.overlay(wahSound, position=wahPoints[x]) #beautify audio
 
-    completeSound.export("beauty.wav", format="wav")
+    completeSound.export("beauty.mp3", format="mp3")
 
 
     #cleanup
@@ -103,5 +103,19 @@ def Waluigify():
         print("ERR: WAV FILE NOT REMOVED, OR COULDN'T BE FOUND")
 
 
+def postOnTumblr():
+    client = pytumblr.TumblrRestClient(
+        secure.tumblrClient,
+        secure.tumblrClientSecret,
+        secure.tumblrOauthToken,
+        secure.tumblrOauthSecret
+    )
+
+    # Make the request
+    print("-posting on Tumblr")
+    client.create_audio("waluigi-bot",  caption="Waluigi-Bot uses ADVANCED ALGORITHMS to WAH along to the following song:", data="beauty.mp3", tags = ["waluigi", "super mario", "mario", "memes", "beauty", "video games", "gaming"])
+
+
 getAudioFromYoutube(getYoutubeURLFromReddit())
 Waluigify()
+postOnTumblr()

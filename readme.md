@@ -47,5 +47,13 @@ In addition, you need to get bot keys / tokens from both python and tumblr. You 
 
 In this project, I put these in a file called "secure.py" and imported it, since I didn't want to show the world my passwords.
 
+# Recommended setup:
+
+(NOT IMPLEMENTED YET) Waluigi-Bot uses a simple CRON job to automatically run once per day. It runs "sudo Python3 <name of main>" via the following Crontab setup:
+
+> 0 0 * * *
+
+Translating to "every day at 0:00". For more information about cron commands, I recommend typing "man cron" in the terminal of a linux machine, as it goes over various important things such as setup and options.
+
 # Authors
 - Kyle Wadsworth (Main Author)

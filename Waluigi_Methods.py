@@ -16,7 +16,7 @@ def getYoutubeURLFromReddit():
                   username=secure.user,
                   password=secure.password)
     
-    subreddit = bot.subreddit("Music")
+    subreddit = bot.subreddit("Music+listentothis")
     
     for submission in subreddit.hot(limit=50):
         #songs on /r/music are usually youtube links, and tagged with "[GENRE]" in the post title

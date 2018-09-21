@@ -7,7 +7,6 @@ import subprocess
 import random
 import secure
 
-
 #crawls reddit /r/music for a popular youtube song link on /r/music
 def getYoutubeURLFromReddit():
     bot = praw.Reddit(user_agent='WaluigiBot v0.1', #login to reddit 
@@ -26,9 +25,6 @@ def getYoutubeURLFromReddit():
             return str(submission.url)   #whatever is popular on reddit at the time (get youtube link to song)
         
     return "https://www.youtube.com/watch?v=dQw4w9WgXcQ" #never gonna give you up if it can't find anything
-
-
-
 
 #downloads a youtube video and pipes it through ffmpeg to get audio
 def getAudioFromYoutube(ytlink):
@@ -81,7 +77,6 @@ def Waluigify():
     wahSound = AudioSegment.from_file("media/wah_sound.wav") #a beautiful cry of a beautiful perrson
     wahPoints = []
 
-
     #randomly insert "wahs" throught the soundtrack
     for x in range(wahCount):
         wahPoints.append(WahDividers(len(sound)))
@@ -101,7 +96,6 @@ def Waluigify():
         print("WAV File Removed!")
     except:
         print("ERR: WAV FILE NOT REMOVED, OR COULDN'T BE FOUND")
-
 
 def postOnTumblr():
     client = pytumblr.TumblrRestClient(

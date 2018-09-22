@@ -63,7 +63,7 @@ def getAudioFromYoutube(ytlink):
 #used by Waluigify()
 #generates a random point in the song to place a "wah"
 def WahDividers(sndLength):
-    return sndLength - random.randint(0,sndLength) 
+    return random.randint(0,sndLength) 
 
 
 #takes audio file named "audio.wav", and randomly disperses "Wahs" made by Waluigi
